@@ -1,0 +1,15 @@
+{
+  "name": "tippy-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:gauravmuk/tippy-demo.git",
+  "author": "Gaurav Nanda <gaurav.nanda@wingify.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {
+    "build": "yarn install"
+  }
+}
