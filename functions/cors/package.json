@@ -1,0 +1,19 @@
+{
+  "name": "auth-fetch",
+  "version": "1.0.0",
+  "description": "netlify functions:create - default template for auth fetch function",
+  "main": "auth-fetch.js",
+  "keywords": [
+    "netlify",
+    "serverless",
+    "js",
+    "identity",
+    "authentication"
+  ],
+  "author": "Netlify",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-fetch": "^2.3.0"
+  }
+}
