@@ -8,36 +8,29 @@ window.addEventListener("DOMContentLoaded", () => {
       instance.setContent(`Loading...`);
     },
     async onShow(instance) {
-      const contextUrl = `https://cors-anywhere.herokuapp.com/${instance.reference.href}`;
+      const contextUrl = `.netlify/functions/cors?website=${instance.reference.href}`;
       let response;
 
-      store[contextUrl] = store[contextUrl] || {};
-      if (!store[contextUrl].data) {
+      if (!store[contextUrl]) {
+        store[contextUrl] = store[contextUrl] || {};
         const data = await fetch(contextUrl);
         response = await data.text();
-        store[contextUrl].data = response;
+        response = JSON.parse(response).data;
+        store[contextUrl] = response;
       } else {
-        response = store[contextUrl].data;
+        response = store[contextUrl];
       }
 
-      const html = $(response);
-
       if (!store[contextUrl].title) {
-        store[contextUrl].title = html
-          .filter(`meta[property='og:title']`)
-          .attr(`content`);
+        store[contextUrl].title = response.title;
       }
 
       if (!store[contextUrl].description) {
-        store[contextUrl].description = html
-          .filter(`meta[property='og:description']`)
-          .attr(`content`);
+        store[contextUrl].description = response.description;
       }
 
       if (!store[contextUrl].imageUrl) {
-        store[contextUrl].imageUrl = html
-          .filter(`meta[property='og:image']`)
-          .attr(`content`);
+        store[contextUrl].imageUrl = response.imageUrl;
       }
       const image = new Image();
       image.src = store[contextUrl].imageUrl;
