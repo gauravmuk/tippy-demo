@@ -1,7 +1,7 @@
 {
   "name": "tippy-demo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "repository": "git@github.com:gauravmuk/tippy-demo.git",
   "author": "Gaurav Nanda <gaurav.nanda@wingify.com>",
   "license": "MIT",
